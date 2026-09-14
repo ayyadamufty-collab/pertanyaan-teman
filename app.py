@@ -11,6 +11,7 @@ supabase = create_client(
     st.secrets["SUPABASE_KEY"]
 )
 
+st.write("Supabase URL:", st.secrets["SUPABASE_URL"])
 st.title("💌 Pertanyaan Untuk Kamu")
 st.write("Jawab dengan jujur yaa 🤍")
 
