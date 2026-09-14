@@ -34,8 +34,7 @@ if st.button("Kirim Jawaban 💌"):
         st.write("Koneksi Supabase berhasil")
 
         response = supabase.table("jawaban").insert(data).execute()
-st.write(response)
-
+        st.write(response)
         st.success("Jawaban kamu sudah terkirim! 💕")
         st.markdown("---")
         st.title("❤️ I LOVE YOU ❤️")
