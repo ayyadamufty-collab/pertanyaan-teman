@@ -20,11 +20,9 @@ kesan = st.text_area("3. Apa kesan pertama kamu tentang aku?")
 kesal = st.text_area("4. Kamu pernah kesal nggak sama sifat aku?")
 pesan = st.text_area("5. Kasih aku pesan")
 nama = st.text_input("6. Tulis nama kamu di sini ya")
-
 if st.button("Kirim Jawaban 💌"):
     if hal_suka and perlakuan and kesan and kesal and pesan and nama:
-
-            data = {
+        data = {
             "nama": nama,
             "hal_suka": hal_suka,
             "perlakuan": perlakuan,
@@ -40,6 +38,6 @@ if st.button("Kirim Jawaban 💌"):
         st.title("❤️ I LOVE YOU ❤️")
         st.write(f"Makasih sudah mau jawab, {nama}! 🫶")
         st.write("Semoga kita tetap berteman baik yaa 🤍")
-
     else:
         st.warning("Jangan lupa isi semua pertanyaannya yaa 😄")
+
