@@ -1,14 +1,14 @@
 import streamlit as st
 from supabase import create_client
 
-supabase = create_client(
-    st.secrets["SUPABASE_URL"],
-    st.secrets["SUPABASE_KEY"]
-)
-
 st.set_page_config(
     page_title="Pertanyaan Untuk Teman",
     page_icon="💌"
+)
+
+supabase = create_client(
+    st.secrets["SUPABASE_URL"],
+    st.secrets["SUPABASE_KEY"]
 )
 
 st.title("💌 Pertanyaan Untuk Kamu")
@@ -20,6 +20,7 @@ kesan = st.text_area("3. Apa kesan pertama kamu tentang aku?")
 kesal = st.text_area("4. Kamu pernah kesal nggak sama sifat aku?")
 pesan = st.text_area("5. Kasih aku pesan")
 nama = st.text_input("6. Tulis nama kamu di sini ya")
+
 if st.button("Kirim Jawaban 💌"):
     if hal_suka and perlakuan and kesan and kesal and pesan and nama:
         data = {
@@ -31,10 +32,8 @@ if st.button("Kirim Jawaban 💌"):
             "pesan": pesan
         }
 
-        st.write("Koneksi Supabase berhasil")
-
         response = supabase.table("jawaban").insert(data).execute()
-        st.write(response)
+
         st.success("Jawaban kamu sudah terkirim! 💕")
         st.markdown("---")
         st.title("❤️ I LOVE YOU ❤️")
@@ -42,4 +41,3 @@ if st.button("Kirim Jawaban 💌"):
         st.write("Semoga kita tetap berteman baik yaa 🤍")
     else:
         st.warning("Jangan lupa isi semua pertanyaannya yaa 😄")
-
