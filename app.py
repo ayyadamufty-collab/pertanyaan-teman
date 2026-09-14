@@ -24,14 +24,16 @@ nama = st.text_input("6. Tulis nama kamu di sini ya")
 if st.button("Kirim Jawaban 💌"):
     if hal_suka and perlakuan and kesan and kesal and pesan and nama:
 
-        supabase.table("jawaban").insert({
+            data = {
             "nama": nama,
             "hal_suka": hal_suka,
             "perlakuan": perlakuan,
             "kesan": kesan,
             "kesal": kesal,
             "pesan": pesan
-        }).execute()
+        }
+
+        response = supabase.from_("jawaban").insert(data).execute()
 
         st.success("Jawaban kamu sudah terkirim! 💕")
         st.markdown("---")
