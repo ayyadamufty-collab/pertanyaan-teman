@@ -31,6 +31,8 @@ if st.button("Kirim Jawaban 💌"):
             "pesan": pesan
         }
 
+        st.write("Koneksi Supabase berhasil")
+
         rresponse = supabase.table("jawaban").insert(data).execute()
 
         st.success("Jawaban kamu sudah terkirim! 💕")
